@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <a href="http://www.biat.com.tn/" title="BIAT">
+            <img class="logo-img" src="assets/images/logo_Biat.png" width="160px" alt="BIAT">
+</a>
+    <a class="navbar-brand" href="#"> </a>
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+
+        <ul class="navbar-nav ml-auto">
+
+                <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" #reference placeholder="{{ 'Search' | translate }}" >
+                        <button class="fa fa-search" (click)="onEditProduit_Ref(reference.value);reference.value='' "  type="button" ></button>
+
+                    </form>&nbsp;
+
+            <li class="nav-item dropdown"  ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link" style="color:black" ngbDropdownToggle>
+                    <i class="fa fa-user"></i> {{currentUser.fullName}} <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/login']" (click)="logOut()">
+                        <i class="mat-icon material-icons"></i> {{ 'Log Out' | translate }}
+                    </a>
+                    <button _ngcontent-c3="" class="mat-menu-item" mat-menu-item="" role="menuitem" tabindex="0" aria-disabled="false">
+                        <mat-icon _ngcontent-c3="" class="mat-icon material-icons" role="img" aria-hidden="true">exit_to_app</mat-icon>
+                        <span _ngcontent-c3="">Logout</span>
+                        <div class="mat-menu-ripple mat-ripple" matripple=""></div>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
