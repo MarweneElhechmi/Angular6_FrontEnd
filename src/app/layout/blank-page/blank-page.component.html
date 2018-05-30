@@ -30,7 +30,7 @@
                         <div class="form-group">
 
                             <label class="control-label">Date</label>
-                            <input class="form-control" type="date" [(ngModel)]="produit.date" />
+                            <input class="form-control" type="date" [ngModel]="produit.date|date:'yyyy-MM-dd' " />
 
                                 </div>
 
@@ -52,7 +52,23 @@
             <!--   TAB 2  -->
             <mat-tab label="Tab 2">
 
-
+                <p-table [columns]="cols" [value]="pays" [paginator]="true" [rows]="10">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns">
+                                {{col.header}}
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                        <tr>
+                            <td *ngFor="let col of columns">
+                                {{rowData[col.field]}}
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <!--
                 <table class="table table-striped" id="table">
                     <tr>
 
@@ -70,7 +86,7 @@
                     </table>
 
 
-
+-->
 
             </mat-tab>
              <!--   FIN TAB 2 -->

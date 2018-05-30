@@ -29,6 +29,8 @@ $topnav-background-color: rgba(36, 10, 182, 0.8);
     width: fullwidth;
     overflow: auto;
     background: url('/assets/images/BIAT_Tunis_Building.png') no-repeat;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
     text-align: center;
     color: #fff;
     padding: 3em;

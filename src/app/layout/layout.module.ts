@@ -8,7 +8,7 @@ import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MatIconModule } from '@angular/material';
-
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
     imports: [
@@ -16,7 +16,8 @@ import { MatIconModule } from '@angular/material';
         LayoutRoutingModule,
         TranslateModule,
         NgbDropdownModule.forRoot(),
-        MatIconModule
+        MatIconModule,
+        ButtonModule
     ],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent]
 })

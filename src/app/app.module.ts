@@ -14,6 +14,7 @@ import { ProduitsService } from '../services/produits.service';
 import { AuthService } from '../services/auth.service';
 import { AccountService } from '../services/account.service';
 import { UrlPermission } from './urlPermission/url.permission';
+import { ButtonModule } from 'primeng/button';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -31,6 +32,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
+        ButtonModule,
         HttpClientModule,
         TranslateModule.forRoot({
             loader: {

@@ -22,6 +22,8 @@ export class BlankPageComponent implements OnInit {
     pays:Pays[];
     produit:Produit=new Produit();
     reference:number;
+    cols: any[];
+
     constructor(public paysService:PaysService,public produitsService:ProduitsService,public router:Router,
         public activatedRoute:ActivatedRoute) {}
 
@@ -38,6 +40,12 @@ export class BlankPageComponent implements OnInit {
               console.log(err);
             })
 
+
+            this.cols = [
+                { field: 'codePays', header: 'CODE PAYS' },
+                { field: 'paysName', header: 'NOM PAYS' },
+                { field: 'libelle', header: 'LIBELLE' },
+            ];
 
             //Liste des Pays
             this.paysService.getPaysByRef(this.reference)
