@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '../../../../model/model.user';
 import { AuthService } from '../../../../services/auth.service';
 import { ProduitsService } from '../../../../services/produits.service';
 import { Produit } from '../../../../model/model.produit';
+import { BlankPageComponent } from '../../blank-page/blank-page.component';
+import { NgModel } from '@angular/forms';
 
 @Component({
     selector: 'app-header',
@@ -16,6 +18,10 @@ export class HeaderComponent implements OnInit {
     currentUser:User;
     pageProduits:any;
     produit:Produit=new Produit();
+    referenceProd : number;
+    path:String;
+    pathPage:String;
+
 
     constructor(public authService: AuthService,
         public produitsService:ProduitsService,
@@ -41,13 +47,27 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {}
 
-
       onEditProduit_Ref(reference:number){
+          if(isNaN(this.referenceProd)){
+          this.referenceProd=reference;
+          }
         this.router.navigate(['/blank-page',reference]);
+        console.log(localStorage.getItem('reference'));
+
+         this.path= location.pathname;
+          this.pathPage="/blank-page/"+sessionStorage.getItem('reference');
+
+        if((this.path)===(this.pathPage)){
+            console.log("Hello")
+            var x = location.pathname;
+            window.location.reload(true);
+        }
+
+        sessionStorage.setItem('reference', `${reference}`);
       }
 
 
-    onEditProduit(reference:number){
+    onEditProduit(reference){
         this.router.navigate(['/produits-new',reference]);
       }
 

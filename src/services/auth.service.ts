@@ -17,8 +17,8 @@ export class AuthService {
     var base64Credential: string = btoa( user.username+ ':' + user.password);
     headers.append("Authorization", "Basic " + base64Credential);
 
-   
-      
+
+
     let options = new HttpParams();
     //options.headers=headers;
 
@@ -42,6 +42,9 @@ export class AuthService {
   logOut() {
     // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+        sessionStorage.removeItem('reference');
+        localStorage.removeItem('reference');
+
 
   }
 }
