@@ -15,7 +15,7 @@ import { AuthService } from '../services/auth.service';
 import { AccountService } from '../services/account.service';
 import { UrlPermission } from './urlPermission/url.permission';
 import { ButtonModule } from 'primeng/button';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatCardModule } from '@angular/material';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -37,6 +37,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         ButtonModule,
         HttpClientModule,
         MatIconModule,
+        MatCardModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

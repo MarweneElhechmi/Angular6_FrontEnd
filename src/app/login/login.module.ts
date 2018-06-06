@@ -7,12 +7,12 @@ import { User } from '../../model/model.user';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
-import { MatIconModule, MatCardModule, MatFormFieldModule } from '@angular/material';
+import { MatIconModule, MatCardModule, MatFormFieldModule, MatTabsModule } from '@angular/material';
 
 
 @NgModule({
     imports: [CommonModule, LoginRoutingModule, FormsModule,
-        MatIconModule,MatCardModule,MatFormFieldModule,
+        MatIconModule,MatCardModule,MatFormFieldModule,MatTabsModule
         ],
     declarations: [LoginComponent]
 })
