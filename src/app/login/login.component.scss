@@ -1,4 +1,4 @@
-$topnav-background-color: rgba(36, 10, 182, 0.8);
+$topnav-background-color: rgba(8, 8, 8, 0.8);
 :host {
     display: block;
 }
@@ -90,7 +90,7 @@ $topnav-background-color: rgba(36, 10, 182, 0.8);
     .form-group {
         padding: 8px 0;
         input::-webkit-input-placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
+            //color: rgba(255, 255, 255, 0.6) !important;
         }
 
         input:-moz-placeholder {
@@ -119,8 +119,8 @@ $topnav-background-color: rgba(36, 10, 182, 0.8);
 .rounded-btn {
     -webkit-border-radius: 50px;
     border-radius: 50px;
-    color: rgba(32, 20, 99, 0.8);
-    border: 2px solid rgba(32, 20, 99, 0.8);
+    color: rgba(8, 8, 8, 0.8);
+    border: 2px solid rgba(8, 8, 8, 0.8);
     font-size: 18px;
     line-height: 40px;
     padding: 0 25px;
