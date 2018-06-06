@@ -19,6 +19,7 @@ import { ButtonModule } from 'primeng/button';
         MatIconModule,
         ButtonModule
     ],
+    exports: [MatIconModule],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent]
 })
 export class LayoutModule {}

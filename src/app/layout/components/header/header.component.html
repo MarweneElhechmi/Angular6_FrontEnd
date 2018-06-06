@@ -36,13 +36,13 @@
                         <i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}
                     </a>
                     <a class="dropdown-item" [routerLink]="['/login']" (click)="logOut()">
-                        <i class="mat-icon material-icons"></i> {{ 'Log Out' | translate }}
+                        <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}
                     </a>
-                    <button _ngcontent-c3="" class="mat-menu-item" mat-menu-item="" role="menuitem" tabindex="0" aria-disabled="false">
-                        <mat-icon _ngcontent-c3="" class="mat-icon material-icons" role="img" aria-hidden="true">exit_to_app</mat-icon>
-                        <span _ngcontent-c3="">Logout</span>
-                        <div class="mat-menu-ripple mat-ripple" matripple=""></div>
-                    </button>
+
+                    <i class="material-icons">
+                        exit_to_app
+                        </i>
+
                 </div>
             </li>
         </ul>

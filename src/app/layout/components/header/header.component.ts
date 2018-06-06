@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, Input, SimpleChanges, ViewChild, HostListener } from '@angular/core';
+import { Router, NavigationEnd, ActivatedRoute,ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '../../../../model/model.user';
 import { AuthService } from '../../../../services/auth.service';
@@ -7,6 +7,8 @@ import { ProduitsService } from '../../../../services/produits.service';
 import { Produit } from '../../../../model/model.produit';
 import { BlankPageComponent } from '../../blank-page/blank-page.component';
 import { NgModel } from '@angular/forms';
+import { switchMap } from 'rxjs/operators';
+import { BlankPageModule } from '../../blank-page/blank-page.module';
 
 @Component({
     selector: 'app-header',
@@ -21,11 +23,15 @@ export class HeaderComponent implements OnInit {
     referenceProd : number;
     path:String;
     pathPage:String;
-
+    href:String;
+    hrefPage:String;
+    session : String;
+    @Input() blankPage: BlankPageComponent;
 
     constructor(public authService: AuthService,
         public produitsService:ProduitsService,
-         private translate: TranslateService, public router: Router) {
+         private translate: TranslateService, public router: Router,
+         public activatedRoute:ActivatedRoute) {
 
         this.currentUser=JSON.parse(localStorage.getItem('currentUser'))
 
@@ -48,10 +54,9 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {}
 
       onEditProduit_Ref(reference:number){
-          if(isNaN(this.referenceProd)){
-          this.referenceProd=reference;
-          }
         this.router.navigate(['/blank-page',reference]);
+        this.router.navigateByUrl('/blank-page/'+`${reference}`);
+
         console.log(localStorage.getItem('reference'));
 
          this.path= location.pathname;
@@ -63,8 +68,25 @@ export class HeaderComponent implements OnInit {
             window.location.reload(true);
         }
 
+        this.session=sessionStorage.getItem('reference')
+        this.href=location.href;
+        this.hrefPage="http://localhost:4200/blank-page/"+reference;
+
+        if((this.href)!==(this.hrefPage)){
+            console.log("Hello href")
+            var y = location.href;
+            // this.session renferme dedans l'ancienne valeur de reference
+            // On va tester la valeur si elle est vide ou non
+            // if(this.session) : c àd [ (this.session)!=null ]
+            if(this.session){
+            window.location.reload(true);
+        }
+        }
         sessionStorage.setItem('reference', `${reference}`);
-      }
+        }
+
+
+
 
 
     onEditProduit(reference){

@@ -49,8 +49,7 @@ addProduit(produit:Produit):Observable<Produit>
 }
 
 modifierProduit(produit:Produit){
-        return this.http.put("http://localhost:8080/updateProduit/"+produit.reference
-        ,produit);
+        return this.http.put("http://localhost:8080/updateProduit/",produit);
 }
 
 supprimerProduit(reference:number): Observable<{}>

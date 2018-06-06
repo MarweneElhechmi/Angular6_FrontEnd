@@ -1,21 +1,22 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges,ChangeDetectionStrategy, HostBinding, OnChanges  } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { ProduitsService } from '../../../services/produits.service';
 import { Produit } from '../../../model/model.produit';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute,ParamMap } from '@angular/router';
 import { PaysService } from '../../../services/pays.service';
 import { Pays } from '../../../model/model.pays';
 import { Observable } from 'rxjs';
-
+import { switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-blank-page',
     templateUrl: './blank-page.component.html',
     styleUrls: ['./blank-page.component.scss'],
-    animations: [routerTransition()]
+    animations: [routerTransition()],
+    changeDetection: ChangeDetectionStrategy.OnPush
 
 })
-export class BlankPageComponent implements OnInit {
+export class BlankPageComponent implements OnInit,OnChanges  {
 
     pageProduits:any;
     pagePays:any;
@@ -27,7 +28,16 @@ export class BlankPageComponent implements OnInit {
     constructor(public paysService:PaysService,public produitsService:ProduitsService,public router:Router,
         public activatedRoute:ActivatedRoute) {}
 
-    ngOnInit() {
+        ngOnInit(){
+            console.log('OnInit');
+            console.log(JSON.stringify(this.reference));
+        this.getData();
+        }
+
+    ngOnChanges(changes: SimpleChanges) {
+
+            console.log('OnChanges');
+            console.log(JSON.stringify(this.reference));
         this.getData();
         }
 
@@ -68,11 +78,9 @@ export class BlankPageComponent implements OnInit {
 
         onEditProduit_Ref(reference:number){
             this.router.navigate(['/blank-page',reference]);
-            BlankPageComponent.apply
+           // window.location.reload(true);
           }
 
-          ngOnChanges(changes: SimpleChanges) {
-            console.log('OnChanges');
-            console.log(JSON.stringify(this.reference));
-        }
+
+
 }

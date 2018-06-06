@@ -15,6 +15,7 @@ import { AuthService } from '../services/auth.service';
 import { AccountService } from '../services/account.service';
 import { UrlPermission } from './urlPermission/url.permission';
 import { ButtonModule } from 'primeng/button';
+import { MatIconModule } from '@angular/material';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -27,6 +28,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 };
 
+
 @NgModule({
     imports: [
         CommonModule,
@@ -34,6 +36,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         BrowserAnimationsModule,
         ButtonModule,
         HttpClientModule,
+        MatIconModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -44,6 +47,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         HttpClientModule,
         AppRoutingModule
     ],
+    exports: [MatIconModule],
     declarations: [AppComponent],
     providers: [AuthGuard,PaysService,ProduitsService,AuthService,AccountService,UrlPermission,AccountService],
     bootstrap: [AppComponent]
