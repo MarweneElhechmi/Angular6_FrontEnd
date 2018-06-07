@@ -1,9 +1,11 @@
 <div class="login-page"  [@routerTransition]>
+        <img src="assets/images/biat-header-bg.PNG"/>
+
     <div class="row justify-content-md-center">
         <div class="col-md-4">
-                <img src="assets/images/Biat-biat.png"/>
 
-            <h1></h1>
+
+            <!--<h1></h1>-->
 
                                                         <!-- FORM 1 -->
 
@@ -28,7 +30,7 @@
         <br/>
 
         <mat-form-field class="example-full-width col-sm-10 col-xs-4">
-        <input matInput type="password" class="form-control " id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required placeholder="Password"/>        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        <input matInput type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required placeholder="Password"/>        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
     </mat-form-field>
     </div>
       <div id="remember" class="checkbox">
@@ -42,7 +44,8 @@
 
 </mat-card-content>
 </mat-card>
-
+<hr class="my-4">
+<p>BIAT© 2018. Tous les droits sont réservés.</p>
 
 
 
@@ -96,4 +99,7 @@
         -->
         </div>
     </div>
+
 </div>
+
+
