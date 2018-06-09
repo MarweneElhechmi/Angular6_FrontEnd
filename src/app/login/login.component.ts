@@ -18,19 +18,18 @@ export class LoginComponent implements OnInit {
     currentUser: User;
     userStorage : String="";
     errorMessage:string;
-    constructor(private authService :AuthService, private router: Router) { 
+    constructor(private authService :AuthService, private router: Router) {
         this.currentUser=JSON.parse(localStorage.getItem('currentUser'))
 
     }
-  
-  
-  
+
+
+
     ngOnInit() {
         console.log(window.clientInformation)
         console.log(window.parent.localStorage)
-        
     }
-  
+
     login(){
       this.authService.logIn(this.user)
         .subscribe(data=>{

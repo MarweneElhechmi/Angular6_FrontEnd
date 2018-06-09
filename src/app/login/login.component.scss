@@ -35,7 +35,9 @@ $topnav-background-color: rgba(8, 8, 8, 0.8);
   background-size: cover; /* version standardisée */
     text-align: center;
     color: #fff;
-    //padding: 3em;
+
+                    /*   PADDING ESPACEMENT   */
+   // padding: 3em; //Pour espace entre image et le Top de la page
     .col-lg-4 {
         padding: 0;
     }
@@ -125,3 +127,12 @@ $topnav-background-color: rgba(8, 8, 8, 0.8);
     line-height: 40px;
     padding: 0 25px;
 }
+
+.gauche{
+    font-style: italic;
+    float: left;
+    width: 30%;
+    font-size: 20px;
+    font-family:  "Comic Sans MS";
+
+    }

@@ -1,17 +1,23 @@
 <div class="login-page"  [@routerTransition]>
         <img src="assets/images/biat-header-bg.PNG"/>
-
+        <!-- <img src="assets/images/Biat-biat.png"> -->
     <div class="row justify-content-md-center">
         <div class="col-md-4">
 
 
-            <!--<h1></h1>-->
+            <h1></h1> <!-- Ajout de h1 pour faire espace entre le Formulaire et l'image -->
 
                                                         <!-- FORM 1 -->
 
         <mat-card class="example-card">
         <mat-card-content>
 
+            <h5 class="gauche">Connexion</h5>
+
+
+            <br/> <!-- Ajout de br pour faire espace entre le Formulaire et l'écriture de la BIAT -->
+            <h1></h1> <!-- Ajout de br pour faire espace entre le Formulaire et l'écriture de la BIAT
+                et de centrer le formulaire -->
 
       <form name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm">
         <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
@@ -29,7 +35,7 @@
         <label for="password" for="inputlg">Password</label>
         <br/>
 
-        <mat-form-field class="example-full-width col-sm-10 col-xs-4">
+        <mat-form-field class="example-fu0ll-width col-sm-10 col-xs-4">
         <input matInput type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required placeholder="Password"/>        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
     </mat-form-field>
     </div>
@@ -45,7 +51,7 @@
 </mat-card-content>
 </mat-card>
 <hr class="my-4">
-<p>BIAT© 2018. Tous les droits sont réservés.</p>
+<p style="color:black">BIAT© 2018. Tous les droits sont réservés.</p>
 
 
 
