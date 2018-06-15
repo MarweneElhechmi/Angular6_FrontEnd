@@ -38,12 +38,25 @@ export class BlankPageComponent implements OnInit  {
             //  this.reference=+this.activatedRoute.snapshot.params['reference'];
             //  console.log("Ref1 :"+JSON.stringify(this.reference));
              this.activatedRoute.params.subscribe(params => this.reference = params['reference']);
-             console.log("Ref2 :"+JSON.stringify(this.reference));
-            // this.serviceSharing.currentReference.subscribe(referenceInput=>this.reference=referenceInput)
-            // console.log("Ref3 :"+JSON.stringify(this.reference));
+            console.log("Ref2 :"+JSON.stringify(this.reference));
+             //this.serviceSharing.currentReference.subscribe(reference=>this.reference=reference)
+             //console.log("Ref3 :"+JSON.stringify(this.reference));
+            /*this.serviceSharing.currentProduit.subscribe(produitInput=>this.produit=produitInput);
+            console.log("Produit"+JSON.stringify(this.produit));
 
+            this.serviceSharing.currentPays.subscribe(paysInput=>this.pays=paysInput);
+            console.log("Pays"+JSON.stringify(this.pays));
+
+           this.serviceSharing.currentReference.subscribe(referenceInput=>this.reference=referenceInput)
+           console.log("Ref3 :"+JSON.stringify(this.reference));
+
+           if(this.reference===0){
+               this.activatedRoute.params.subscribe(params => this.reference = params['reference']);
+                console.log("Ref2 :"+JSON.stringify(this.reference));
+                this.serviceSharing.newId(this.reference);
+           }
             //console.log("Ref_Input :"+JSON.stringify(this.referenceInput));
-
+*/
         this.getData(this.reference);
         }
 

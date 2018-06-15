@@ -70,7 +70,7 @@ export class HeaderComponent implements OnInit {
             this.activatedRoute,this.serviceSharing);
 
         //Normlement récupérer le nouveau Id
-        //this.serviceSharing.newId(this.referenceInput);
+        this.serviceSharing.newId(this.reference);
 
         this.router.navigate(['/blank-page',reference]);
         if(location.pathname!=="/dashboard"){
