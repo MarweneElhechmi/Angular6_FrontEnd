@@ -14,8 +14,8 @@ import { DataSharingService } from '../../../services/data-sharing.service';
     selector: 'app-blank-page',
     templateUrl: './blank-page.component.html',
     styleUrls: ['./blank-page.component.scss'],
-    animations: [routerTransition()],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    animations: [routerTransition()]
+    //changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 export class BlankPageComponent implements OnInit  {
@@ -37,18 +37,12 @@ export class BlankPageComponent implements OnInit  {
             console.log('OnInit');
             //  this.reference=+this.activatedRoute.snapshot.params['reference'];
             //  console.log("Ref1 :"+JSON.stringify(this.reference));
-            // this.activatedRoute.params.subscribe(params => this.reference = params['reference']);
-            // console.log("Ref2 :"+JSON.stringify(this.reference));
-             this.serviceSharing.currentProduit.subscribe(produitInput=>this.produit=produitInput);
-             console.log("Produit"+JSON.stringify(this.produit));
+             this.activatedRoute.params.subscribe(params => this.reference = params['reference']);
+             console.log("Ref2 :"+JSON.stringify(this.reference));
+            // this.serviceSharing.currentReference.subscribe(referenceInput=>this.reference=referenceInput)
+            // console.log("Ref3 :"+JSON.stringify(this.reference));
 
-             this.serviceSharing.currentPays.subscribe(paysInput=>this.pays=paysInput);
-             console.log("Pays"+JSON.stringify(this.pays));
-
-            this.serviceSharing.currentReference.subscribe(referenceInput=>this.reference=referenceInput)
-            console.log("Ref3 :"+JSON.stringify(this.reference));
-
-            console.log("Ref_Input :"+JSON.stringify(this.referenceInput));
+            //console.log("Ref_Input :"+JSON.stringify(this.referenceInput));
 
         this.getData(this.reference);
         }
@@ -108,7 +102,7 @@ export class BlankPageComponent implements OnInit  {
       console.log(err);
     })
 
-//});
+    // });
 }
 
        /* onEditProduit_Ref(reference:number){

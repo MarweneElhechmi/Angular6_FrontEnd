@@ -20,7 +20,7 @@
                     <div class="ui-g-12 ui-md-4">
                         <div class="ui-inputgroup">
                         <!--<button pButton label="Recherche" [class.selected]="reference === selectedId" (click)="onEditProduit_Ref(reference.value);reference.value='' "  type="button" ></button>-->
-                        <button pButton label="Recherche"  (click)="onEditProduit_Ref(reference.value);reference.value='' "  type="button" ></button>
+                        <button pButton label="Recherche" routerLink="/blank-page/:reference" (click)="onEditProduit_Ref(reference.value);reference.value='' "  type="button" ></button>
                         <input  type="text" [(ngModel)]="referenceInput" #reference="ngModel"  placeholder="{{ 'Search' | translate }}">
                             <!-- Hedhi Sibling to sibling bi DataSharingService -->
 
