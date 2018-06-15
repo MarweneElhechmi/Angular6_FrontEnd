@@ -75,18 +75,17 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/blank-page',reference]);
         if(location.pathname!=="/dashboard"){
         //this.getData();
-
         blankPage.getData(reference);
         //blankPage.ngOnInit();
         //this.serviceSharing.newProd(this.produit);
-        //this.serviceSharing.newPays(this.paysNew);
-
+        //this.serviceSharing.newPays(this.pays);
         /** Teb3a Details kima : https://stackblitz.com/angular/jrvejpovgaj?file=src%2Fapp%2Fcrisis-center%2Fcrisis-detail.component.ts */
-       /* this.produit$=this.activatedRoute.paramMap.pipe(switchMap((params: ParamMap) =>
+        /*this.produit$=this.activatedRoute.paramMap.pipe(switchMap((params: ParamMap) =>
         {this.reference =+ params.get('reference')
        return this.produitsService.getProduitByRef(this.reference);
        }) );*/
-
+      // this.serviceSharing.newProd(this.produit);
+      // this.serviceSharing.newPays(this.paysNew);
              console.log("Ref2 :"+JSON.stringify(this.reference));
 
         }

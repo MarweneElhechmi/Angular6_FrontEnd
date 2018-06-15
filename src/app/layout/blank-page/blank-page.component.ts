@@ -37,14 +37,12 @@ export class BlankPageComponent implements OnInit  {
             console.log('OnInit');
             //  this.reference=+this.activatedRoute.snapshot.params['reference'];
             //  console.log("Ref1 :"+JSON.stringify(this.reference));
-
             // this.activatedRoute.params.subscribe(params => this.reference = params['reference']);
             // console.log("Ref2 :"+JSON.stringify(this.reference));
-
              this.serviceSharing.currentProduit.subscribe(produitInput=>this.produit=produitInput);
              console.log("Produit"+JSON.stringify(this.produit));
 
-             this.serviceSharing.currentPays.subscribe(paysInput=>this.paysNew=paysInput);
+             this.serviceSharing.currentPays.subscribe(paysInput=>this.pays=paysInput);
              console.log("Pays"+JSON.stringify(this.pays));
 
             this.serviceSharing.currentReference.subscribe(referenceInput=>this.reference=referenceInput)
@@ -63,17 +61,14 @@ export class BlankPageComponent implements OnInit  {
              // this.reference=+this.activatedRoute.snapshot.params['reference'];
     this.activatedRoute.params.subscribe(params => reference = reference);
     //this.serviceSharing.currentReference.subscribe(referenceInput=>this.reference=referenceInput)
-
     //this.router.navigated = false;
-    this.router.navigate(['/blank-page',reference]);
-    this.activatedRoute.params
-    .forEach(params => {
+    //this.router.navigate(['/blank-page',reference]);
+    //this.activatedRoute.params
+    //.forEach(params => {
 // This will be triggered every time the params change
 // Add your code to reload here. i.e.
       //const reference = params['reference'];
-
      // this.router.navigate(['/blank-page',reference]);
-
 
     // Liste des Produits
     this.produitsService.getProduitByRef(reference)
@@ -82,6 +77,8 @@ export class BlankPageComponent implements OnInit  {
       this.produit=data;
       console.log(this.pageProduits)
       this.serviceSharing.newProd(this.produit);
+      this.serviceSharing.currentProduit.subscribe(produit=>this.produit=produit);
+
     },err=>{
       console.log(err);
     })
@@ -99,22 +96,26 @@ export class BlankPageComponent implements OnInit  {
       this.pagePays=data;
       this.pays=[this.pagePays];
       this.paysNew=this.pagePays;
-      this.serviceSharing.newPays(this.paysNew);
+      this.serviceSharing.newPays(this.pays);
+      this.serviceSharing.currentPays.subscribe(pays=>this.pays=pays);
 
       //OU BIEN
       //this.pays=[this.pageProduits.pays]
-      console.log(this.pagePays)
+      console.log("pays"+this.pays);
+      console.log("pays page"+[this.pagePays]);
+
     },err=>{
       console.log(err);
     })
-});
+
+//});
 }
 
-        onEditProduit_Ref(reference:number){
+       /* onEditProduit_Ref(reference:number){
             this.router.navigate(['/blank-page',reference]);
             console.log("Ena Houna");
            // window.location.reload(true);
-          }
+          }*/
 
 
 
